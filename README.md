@@ -59,11 +59,20 @@ You and your friends can start right away with any arbitrary file as key to get 
 `./bin/xor README.md any_random_file > reasonably_encrypted`
 `./bin/xor key any_random_file > practically_perfect_key`
 
+Extra: speed
+Once the key is generated, the encryption and decryption runs in [linear time](https://en.wikipedia.org/wiki/Time_complexity#Linear_time).
+
+
+CAUTION: In its current implementation once the master key is stolen* somehow, then all files encrypted with it can be deciphered.
+This can easily be mitigated by using several keys, but a better approach is desirable.
+If your key is too small or if you are using it too often, you may be reducing security.
+However for a key of significant size it is almost infinitely more likely that the key will get stolen then being reverse-engineered.
+
 NOTE: You can increase security significantly if you xor/encrypt zipped files, as they already contain very little structure!
 
-Extra: speed
-Once the key is generated, the encryption and decryption can be implemented as O(n), n being the size of the target file.
+OUTLOOK: This encryption can also be used locally for your own files, if you put the key on a USB stick. And it can be used in the future for peer-to-peer communication applications.
 
-PS: Ideally you would have a little offline device which encrypts every keystroke that you make before it reaches your computer.
+
+PS: * Ideally you would have a little offline device which encrypts every file/keystroke that you make before it reaches your computer.
 
 PS3: ** You can even securly share the key over the internet using [perfect forward encryption](https://en.wikipedia.org/wiki/Forward_secrecy#Perfect_forward_secrecy), for example through extensions of [Diffie Hellman](https://github.com/pannous/Diffie-Hellman). If you trust ssh/scp/sftp these might be appropriate as well.
