@@ -1,2 +1,4 @@
 # xipher
-simple xor cipher
+Simple XOR cipher scheme
+
+
