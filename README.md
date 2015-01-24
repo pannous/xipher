@@ -17,14 +17,26 @@ unless you provided your friends with the key on physical devices. These days yo
 
 
 Here is how it works:
+
+In your Mac, Linux or Windows shell type:
+
+`git clone https://github.com/pannous/xipher.git`
+
+`cd xipher`
+
 `make`
+
 `./bin/random > key`
+
 `./bin/encrypt README.md key > encrypted`
+
 `./bin/decrypt encrypted key > README.yay`
+
 
 Why don't we just use the existing encryption mechanisms?
 
-Number one: trust
+Number one: **trust**
+
 Do you really feel secure if you use an encryption scheme which you don't understand?
 Even if you have access to the source code: Do you really understand everything what happens in all steps?
 Are you sure that there is no backdoor somewhere?
@@ -36,11 +48,12 @@ What if you don't trust the random key generator on your computer?
 Just xor the generated key with some other files.
 If you combine randomness with noise and chaos, you get almost/practically perfect randomness.
 
-Number two: fun and insight
+Number two: **fun and insight**
+
 Sometimes the topic of encryption can get overwhelming even for people with mathematical background.
 Understanding the XOR operation couldn't be any more simple and writing your own encryption feels very empowering.
 
-Number three: simplicity
+Number three: **simplicity**
 This scheme is arguably even simpler then the usual ssh-keygen/openssl approach.
 You and your friends can even start right away with any arbitrary file as key to get reasonable encryption:
 `./bin/xor README.md any_random_file > reasonably_encrypted`
@@ -53,4 +66,4 @@ Once the key is generated, the encryption and decryption can be implemented as O
 
 PS: Ideally you would have a little offline device which encrypts every keystroke that you make before it reaches your computer.
 
-PS3: ** You can even securly share the key over the internet using [perfect forward encryption](https://en.wikipedia.org/wiki/Forward_secrecy#Perfect_forward_secrecy), for example through extensions of [Diffie Hellman](https://github.com/pannous/Diffie-Hellman). Is there a simple trustworthy tool?
+PS3: ** You can even securly share the key over the internet using [perfect forward encryption](https://en.wikipedia.org/wiki/Forward_secrecy#Perfect_forward_secrecy), for example through extensions of [Diffie Hellman](https://github.com/pannous/Diffie-Hellman). If you trust ssh/scp/sftp these might be appropriate as well.
