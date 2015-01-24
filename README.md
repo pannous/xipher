@@ -55,7 +55,7 @@ Understanding the XOR operation couldn't be any more simple and writing your own
 
 Number three: **simplicity**
 This scheme is arguably even simpler then the usual ssh-keygen/openssl approach.
-You and your friends can even start right away with any arbitrary file as key to get reasonable encryption:
+You and your friends can start right away with any arbitrary file as key to get reasonable encryption:
 `./bin/xor README.md any_random_file > reasonably_encrypted`
 `./bin/xor key any_random_file > practically_perfect_key`
 
