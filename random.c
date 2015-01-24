@@ -57,9 +57,9 @@ int main(int cc,char** cv){
 	if(cc>1)cyphername=cv[2];
 	if(cc>=1){
 		char* f=cv[1];
-		create(f,0x10000000);
+		create(f,0x1000000);
 	}else{
-		create(0,0x10000000);
+		create(0,0x1000000);
 //						usage();
 	}
 }
