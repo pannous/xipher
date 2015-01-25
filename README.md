@@ -3,7 +3,7 @@ A very simple yet powerful [XOR cipher](https://en.wikipedia.org/wiki/XOR_cipher
 
 With a 'key' file containing truly random noise, this encryption is unbreakable even in theory.
 
-The [XOR cipher](https://en.wikipedia.org/wiki/XOR_cipher) is so easy, every computer science student should be able to implement this cipher by heart in a couple of lines! If it 100% secure and incredibly easy to implement, why isn't the whole world using it?
+The [XOR cipher](https://en.wikipedia.org/wiki/XOR_cipher) is so easy, every computer science student should be able to implement this cipher by heart in a couple of lines! If it is 100% secure and incredibly easy to implement, why isn't the whole world using it?
 
 It is in fact used all over the world albeit as part of more complicated cypher schemes.
 The problem with the naïve application of xor is that you lose perfect security if you apply the key too often (more than once).
@@ -12,7 +12,7 @@ Also for big files you need to have big keys, to avoid or minimize repetition.
 This project contains a very simple Algorithm to mitigate the above limitations,.
 
 In the age of the slow Internet connections, exchanging big keys with your trustees was impractical,
-unless you provided your friends with the key on physical devices. These days you can just create a key which is a couple of megabytes in size and give it to your communication partners, preferably/necessarily using a secure channel**/medium like a CD.
+unless you provided your friends with the key on physical devices. These days you can just create a key which is a couple of megabytes in size and give it to your communication partners, preferably/necessarily using a secure channel/medium like a CD**.
 
 
 
@@ -38,7 +38,7 @@ Why don't we just use the existing encryption mechanisms?
 Number one: **trust**
 
 Do you really feel secure if you use an encryption scheme which you don't understand?
-Even if you have access to the source code: Do you really understand everything what happens in all steps?
+Even if you have access to the source code: Do you really understand everything that happens in all steps?
 Are you sure that there is no backdoor somewhere?
 
 With this project you can be perfectly sure:
@@ -51,7 +51,7 @@ If you combine randomness with noise and chaos, you get almost/practically perfe
 Number two: **fun and insight**
 
 Sometimes the topic of encryption can get overwhelming even for people with mathematical background.
-Understanding the XOR operation couldn't be any more simple and writing your own encryption feels very empowering.
+Understanding the XOR operation couldn't be any simpler and writing your own encryption feels very empowering.
 
 Number three: **simplicity**
 This scheme is arguably even simpler then the usual ssh-keygen/openssl approach.
@@ -66,7 +66,7 @@ Once the key is generated, the encryption and decryption runs in [linear time](h
 CAUTION: In its current implementation once the master key is stolen* somehow, then all files encrypted with it can be deciphered.
 This can easily be mitigated by using several keys, but a better approach is desirable.
 If your key is too small or if you are using it too often, you may be reducing security.
-However for a key of significant size it is almost infinitely more likely that the key will get stolen then being reverse-engineered.
+However for a key of significant size (i.e. 4GB) it is almost infinitely more likely that the key will get stolen then being reverse-engineered.
 
 NOTE: You can increase security significantly if you xor/encrypt zipped files, as they already contain very little structure!
 
