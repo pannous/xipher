@@ -9,7 +9,7 @@ It is in fact used all over the world albeit as part of more complicated cypher 
 The problem with the naïve application of xor is that you lose perfect security if you apply the key too often (more than once).
 Also for big files you need to have big keys, to avoid or minimize repetition.
 
-This project contains a very simple Algorithm to mitigate the above limitations,.
+This project contains a very simple Algorithm to mitigate the above limitations.
 
 In the age of the slow Internet connections, exchanging big keys with your trustees was impractical,
 unless you provided your friends with the key on physical devices. These days you can just create a key which is a couple of megabytes in size and give it to your communication partners, preferably/necessarily using a secure channel/medium like a CD**.
