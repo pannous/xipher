@@ -74,7 +74,7 @@ int main(int cc,char** cv){
 	if(cc==2||cc==3){
 		char* file=cv[1];
 		char* key=cv[2];
-      if(cc==3)offset_token=atoi(cv[3]);
+      if(cc==3)offset_token=atoll(cv[3]);
 		encrypt(file,key);
 	}else{
 		usage();
