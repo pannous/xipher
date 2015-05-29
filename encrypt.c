@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+long offset_token=1337;// optional offset ('password token') shareable through 3rd channel
+
 short nr_offsets=10;
 
 long size(FILE* fp){
@@ -16,7 +18,7 @@ int* generate_random_offsets(){
 	srand(time(NULL));// seed
 	rand();rand();rand();rand();// skip first
 	int* offsets=(int*)malloc(nr_offsets*sizeof(int));
-	for (int i=0; i < 10; i++)
+	for (int i=0; i < nr_offsets; i++)
 	{
 		unsigned int n=rand();// todo: get real good random number here!
 		offsets[i]=n;
@@ -54,7 +56,7 @@ int encrypt(char* filename,char* cyphername){
 		char f=(char)fgetc(file);
 		for(int o=0;o<nr_offsets;o++){
 			unsigned int offset=offsets[o]%num_cypher_bytes;
-			char c=cypher_bytes[(offset+i)%num_cypher_bytes];
+			char c=cypher_bytes[(offset+i+offset_token)%num_cypher_bytes];
 			f=f^c;
 		}
 		printf("%c",f);
@@ -63,16 +65,17 @@ int encrypt(char* filename,char* cyphername){
 }
 
 void usage(){
-	fprintf(stderr,"USAGE:\n decrypt <file> <cypher>\n");
+	fprintf(stderr,"USAGE:\n encrypt <target_file> <xor_cypher_file> [<optional_offset>]\n");
 }
 
 //srand ((unsigned int) time (NULL));
 int main(int cc,char** cv){
 	cc--;
-	if(cc==2){
-		char* f=cv[1];
-		char* c=cv[2];
-		encrypt(f,c);
+	if(cc==2||cc==3){
+		char* file=cv[1];
+		char* key=cv[2];
+      if(cc==3)offset_token=atoi(cv[3]);
+		encrypt(file,key);
 	}else{
 		usage();
 	}
