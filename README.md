@@ -1,4 +1,4 @@
-# xipher
+# xipher 🔐
 A very simple yet powerful [XOR cipher](https://en.wikipedia.org/wiki/XOR_cipher) scheme
 
 With a 'key' file containing truly random noise, this encryption is unbreakable even in theory.
@@ -76,3 +76,5 @@ OUTLOOK: This encryption can also be used locally for your own files, if you put
 PS: * Ideally you would have a little offline device which encrypts every file/keystroke that you make before it reaches your computer.
 
 PS3: ** You can even securly share the key over the internet using [perfect forward encryption](https://en.wikipedia.org/wiki/Forward_secrecy#Perfect_forward_secrecy), for example through extensions of [Diffie Hellman](https://github.com/pannous/Diffie-Hellman). If you trust ssh/scp/sftp these might be appropriate as well.
+
+💡
